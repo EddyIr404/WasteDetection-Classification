@@ -1,0 +1,5 @@
+ultralytics
+torch
+numpy
+Pillow
+streamlit
