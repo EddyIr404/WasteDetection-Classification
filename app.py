@@ -3,12 +3,17 @@ from ultralytics import YOLO
 from PIL import Image
 import numpy as np
 import torch
+from huggingface_hub import hf_hub_download
+
 
 # Load model once
 @st.cache_resource
 def load_model():
-    model = YOLO("best.pt")        # your trained classification model
-    return model
+    weights_path = hf_hub_download(
+        repo_id="EddyIr404/waste-classification-yolo",
+        filename="best.pt"
+    )
+    return YOLO(weights_path)
 
 model = load_model()
 
