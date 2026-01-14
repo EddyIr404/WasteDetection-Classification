@@ -1,3 +1,9 @@
+import sys
+import types
+
+# Fake cv2 module to bypass libGL error
+sys.modules['cv2'] = types.ModuleType('cv2')
+
 import streamlit as st
 from ultralytics import YOLO
 from PIL import Image
@@ -6,14 +12,6 @@ import torch
 import os
 from PIL import Image
 from huggingface_hub import hf_hub_download
-import sys
-import types
-
-# Fake cv2 module to bypass libGL error
-sys.modules['cv2'] = types.ModuleType('cv2')
-
-from ultralytics import YOLO
-
 
 os.environ["YOLO_MISSING_CV2"] = "1"
 
