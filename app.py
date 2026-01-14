@@ -3,8 +3,10 @@ from ultralytics import YOLO
 from PIL import Image
 import numpy as np
 import torch
+import os
 from huggingface_hub import hf_hub_download
 
+os.environ["YOLO_MISSING_CV2"] = "1"
 
 # Load model once
 @st.cache_resource
